@@ -8,6 +8,6 @@ resources:
 #  - hpa.yaml
 #  - ingress.yaml
 
-commonLabels:
+commonAnnotations:
   template: python-api
 
