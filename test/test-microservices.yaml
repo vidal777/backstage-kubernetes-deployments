@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "test"
+  title: "test"
+  description: Microservice "test" 
+  annotations:
+  tags:
+   - kubernetes
+   - microservice
+spec:
+  type: microservice 
+  owner: group:default/security-team
+  lifecycle: production
+  system: random
