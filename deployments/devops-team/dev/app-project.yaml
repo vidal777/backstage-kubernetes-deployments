@@ -15,3 +15,5 @@ spec:
   destinations:
   - namespace: devops-team
     server: https://kubernetes.default.svc
+  - namespace: argocd
+    server: https://kubernetes.default.svc

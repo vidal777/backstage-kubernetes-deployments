@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: devops-team-dev
+  name: api-microservice-backstage
   namespace: argocd
   labels:
-    service: applications
+    service: team-applications
 spec:
   project: devops-team
   source:
-    repoURL: https://github.com/vidal777/backstage-kubernetes-deployments
+    repoURL: https://github.com/vidal777/api-microservice-backstage
     targetRevision: HEAD
-    path: ./deployments/devops-team/dev/applications
+    path: deployment/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: devops-team
   syncPolicy:
     automated:
-      prune: true
+      prune: true       # To delete resources removed from Git
       selfHeal: true
