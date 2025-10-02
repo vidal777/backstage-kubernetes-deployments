@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api
+  namespace: argocd
+  labels:
+    service: application
+spec:
+  project: devops-team
+  source:
+    repoURL: https://github.com/vidal777/api
+    targetRevision: HEAD
+    path: deployment/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devops-team
+  syncPolicy:
+    automated:
+      prune: true       # To delete resources removed from Git
+      selfHeal: true
