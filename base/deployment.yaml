@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-api-app
+  name: deployment-name
   labels:
     app: python-api
     component: backend
@@ -75,21 +75,4 @@ spec:
             drop:
             - ALL
       restartPolicy: Always
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: python-api-service
-  labels:
-    app: python-api
-    component: backend
-spec:
-  selector:
-    app: python-api
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8000
-    name: http
-  type: ClusterIP
-  sessionAffinity: None
+
